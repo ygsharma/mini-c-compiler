@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "iosfwd": "cpp"
+    },
+    "makefile.configureOnOpen": true
+}

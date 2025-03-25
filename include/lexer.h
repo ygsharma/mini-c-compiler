@@ -1,31 +1,21 @@
 #ifndef LEXER_H
 #define LEXER_H
 
-
-#include <string>
-#include <vector>
-#include <cctype>
-
-enum class TokenType {
-    KEYWORD, IDENTIFIER, NUMBER, SYMBOL, END_OF_FILE, UNKNOWN
-};
-
-struct Token {
-    TokenType type;
-    std::string value;
-};
+#include "source_buffer.h"
+#include "token.h"
 
 class Lexer {
-public:
-    Lexer(const std::string& src);
-    Token getNextToken();
+    
+    public:
+        Lexer(SourceBuffer& buffer);
+        Token getNextToken();
 
-private:
-    std::string src;
-    size_t pos;
-    char peek();
-    char get();
-    void skipWhiteSpace();
+    private:
+        SourceBuffer& src;
+
+        void skipWhiteSpace();
+        void reportError(const std::string& message, int line, int col);
+
 };
 
-#endif;
+#endif
