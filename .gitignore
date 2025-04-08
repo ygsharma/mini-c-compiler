@@ -1,0 +1,10 @@
+# Ignore all object files in build/
+build/*.o
+
+# Ignore the compiled executable
+mylexer
+
+# (Optional) Ignore backups or temporary files
+*.swp
+*.tmp
+*.out
